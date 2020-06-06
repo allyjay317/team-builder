@@ -12,12 +12,10 @@ function Form(props){
 
     useEffect(()=>{
         if(props.edit){
-            console.log(params.id)
-            
             let temp = props.users.filter(u => u.id === Number(params.id));
             setUser({...temp[0]});
         }
-    }, [props.id])
+    }, [params.id])
 
     function handleSubmit(event){
         event.preventDefault();
@@ -57,7 +55,7 @@ function Form(props){
             
             </div>
             <div className='field'>
-            <input type='submit' value={props.edit ? 'Edit' : 'Add'} onSubmit={handleSubmit}/>
+            <input type='submit' value={props.edit ? 'Save' : 'Add'} onSubmit={handleSubmit}/>
             </div>
         </form>
     </div>
