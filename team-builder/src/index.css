@@ -17,14 +17,20 @@ code {
   width: 74%;
   margin-left: 13%;
   background-color: #00cec9;
-  height: 20vh;
+  height: 100%;
+  padding: 20px;
   margin-top: 5vh;
   
+}
+.form h1{
+  margin: auto;
 }
 .form .user-form{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  
 }
 
 .user-list{
@@ -39,6 +45,15 @@ code {
   border: 1px solid #636e72;
   border-radius: 10px;
 }
+.user-form .field{
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  margin: 5px auto;
+}
+.field select{
+  width: 177px;
+}
 .user-card h1{
   margin: auto;
 }
@@ -47,4 +62,9 @@ code {
 }
 .user-card p{
   font-style: italic;
+}
+.form .user-form input[type='submit']{
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
 }

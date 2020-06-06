@@ -11,18 +11,23 @@ function Form(props){
     <div className='form'>
         <h1>Add User</h1>
         <form className="user-form">
-            <label htmlFor='title'>
-                Title:
+            <div className='field'>
+                <label htmlFor='title'>
+                    Title:
+                </label>
                 <input id='title' type='text' value={user.title} name='title' onChange={handleChange}/>
-            </label>
-        
-            <label htmlFor='email'>
-                Email:
+            
+            </div>
+            <div className='field'>
+                <label htmlFor='email'>
+                    Email:
+                </label>
                 <input id='email' type='email' value={user.email} name='email' onChange={handleChange}/>
-            </label>
-        
-            <label htmlFor='role'>
-                Role:
+            </div>
+            <div className='field'>
+                <label htmlFor='role'>
+                    Role:
+                </label>
                 <select id='role' value={user.role} name='role' onChange={handleChange}>
                     <option>Backend Engineer</option>
                     <option>Frontend Engineer</option>
@@ -31,8 +36,11 @@ function Form(props){
                     <option>Code Monkey</option>
 
                 </select>
-            </label>
-        
+            
+            </div>
+            <div className='field'>
+            <input type='submit' value='Add' />
+            </div>
         </form>
     </div>
     )
