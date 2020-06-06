@@ -1,16 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory, useParams } from 'react-router-dom';
 
 function Form(props){
     const [user, setUser] = useState({title: "", email: "", role: "Code Monkey"})
+    const history = useHistory();
+    const params = useParams();
 
     function handleChange(event){
         setUser({...user, [event.target.name]: event.target.value});
     }
 
+    useEffect(()=>{
+        if(props.edit){
+            console.log(params.id)
+            
+            let temp = props.users.filter(u => u.id === Number(params.id));
+            setUser({...temp[0]});
+        }
+    }, [props.id])
+
+    function handleSubmit(event){
+        event.preventDefault();
+        props.add(user);
+        history.push('/');
+    }
+
     return (
     <div className='form'>
-        <h1>Add User</h1>
-        <form className="user-form">
+        <h1>{props.edit ? "Edit" : "Add"} User</h1>
+        <form className="user-form" onSubmit={handleSubmit}>
             <div className='field'>
                 <label htmlFor='title'>
                     Title:
@@ -39,7 +57,7 @@ function Form(props){
             
             </div>
             <div className='field'>
-            <input type='submit' value='Add' />
+            <input type='submit' value={props.edit ? 'Edit' : 'Add'} onSubmit={handleSubmit}/>
             </div>
         </form>
     </div>
